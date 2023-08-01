@@ -30,6 +30,10 @@
         Amount : <input type="number" name="amount" id="amount" [(ngModel)]="amount" placeholder="Enter the amount"><br><br>
         <button id="submitButton" class="button">SUBMIT</button><br><br>
         <div id="result">
+          <label for="resValue" name="resValue" id="resValue">
+            {{ (fromCurrency ?? '').toString() | currencypipe: (toCurrency ?? '').toString() : (amount ?? '').toString() | number: '0.2' | removeComma }}
+          </label>
+          
           <label for="resValue" name="resValue" id="resValue">{{ fromCurrency?.toString() | currencypipe: toCurrency?.toString() : amount?.toString() | number: '0.2' | removeComma }}</label>
         </div>
       </div>
